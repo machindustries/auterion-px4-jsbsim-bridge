@@ -271,6 +271,8 @@ void MavlinkInterface::SendSensorMessages(int time_usec) {
     diff_press_updated_ = false;
   }
 
+  sensor_msg.id = 0;
+
   if (!hil_mode_ || (hil_mode_ && !hil_state_level_)) {
     mavlink_message_t msg;
     mavlink_msg_hil_sensor_encode_chan(1, 200, MAVLINK_COMM_0, &msg, &sensor_msg);
