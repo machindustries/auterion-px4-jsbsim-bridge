@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<direct name="Direct">
+  <!-- Thrust is computed directly by the engine, the direct thruster file is a stub. -->
+</direct>
