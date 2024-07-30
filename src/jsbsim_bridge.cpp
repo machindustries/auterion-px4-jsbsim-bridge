@@ -115,6 +115,11 @@ bool JSBSimBridge::SetFdmConfigs(ConfigurationParser &cfg) {
     aircraft_model = cfg.getModelName();
   }
 
+  // print new line
+  std::cout << std::endl;
+  std::cout << "LOADING AIRCRAFT MODEL: " << aircraft_model << " FROM " << aircraft_path << std::endl;
+  std::cout << std::endl;
+
   // Check if HEADLESS mode is enabled
   if (!cfg.isHeadless()) {
     _fdmexec->SetOutputDirectives(SGPath("data_out/flightgear.xml"));
