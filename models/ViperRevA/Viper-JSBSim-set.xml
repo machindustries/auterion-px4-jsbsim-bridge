@@ -35,20 +35,20 @@ dynamics model, and external 3D model.
   <aero>Viper-JSBSim</aero>
   <fuel-fraction>1.0</fuel-fraction>
 
-  <systems>
+  <!-- <systems>
   <!-- using the same autopilot that Rascal uses -->
    <autopilot>
     <path>Aircraft/Rascal/Systems/110-autopilot.xml</path>
    </autopilot>
-  </systems>
+  </systems> -->
 
   <!-- <sound>
    <path>Aircraft/Generic/generic-sound.xml</path>
   </sound> -->
 
-  <panel>
+  <!-- <panel>
    <visibility archive="n">false</visibility>
-  </panel>
+  </panel> -->
 
   <!-- specify path to 3D model here when applicable -->
   <!-- <model>
