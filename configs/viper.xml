@@ -6,7 +6,7 @@
     <mavlink_interface>
         <tcp_port>4560</tcp_port>
     </mavlink_interface>
-    <sensors>
+    <!-- <sensors>
         <imu>
         </imu>
         <gps>
@@ -17,7 +17,7 @@
         </magnetometer>
         <airspeed>
         </airspeed>
-    </sensors>
+    </sensors> -->
     <!-- <actuators>
         <channel name="rudder">
             <index>2</index>
