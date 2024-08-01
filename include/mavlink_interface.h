@@ -231,7 +231,7 @@ class MavlinkInterface {
   std::atomic<bool> tx_in_progress;
   std::deque<MsgBuffer> tx_q;
 
-  bool hil_mode_;
+  bool hil_mode_ = false; // TODO: FIND A BETTER SOLUTION
   bool hil_state_level_;
 
   bool baro_updated_;
