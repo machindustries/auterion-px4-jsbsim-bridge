@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<turbine_engine name="K450.xml">
+  <milthrust unit="N">411.8</milthrust>
+  <maxthrust unit="N">411.8</maxthrust>
+  <bypassratio>0.0</bypassratio>
+  <bleed>0.15</bleed>
+  <tsfc>1.4</tsfc>
+  <atsfc>0</atsfc>
+  <ignitionn1>0</ignitionn1>
+  <ignitionn2>100</ignitionn2>
+  <idlen1>50</idlen1>
+  <idlen2>50</idlen2>
+  <maxn1>80</maxn1>
+  <maxn2>80</maxn2>
+  <augmented>0</augmented>
+  <injected>0</injected>
+  <function name="IdleThrust">
+    <value>0.035939776590577954</value>
+  </function>
+  <function name="MilThrust">
+    <value>1</value>
+  </function>
+</turbine_engine>
