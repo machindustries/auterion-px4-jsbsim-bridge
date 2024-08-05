@@ -115,11 +115,6 @@ bool JSBSimBridge::SetFdmConfigs(ConfigurationParser &cfg) {
     aircraft_model = cfg.getModelName();
   }
 
-  // print new line
-  std::cout << std::endl;
-  std::cout << "LOADING AIRCRAFT MODEL: " << aircraft_model << " FROM " << aircraft_path << std::endl;
-  std::cout << std::endl;
-
   // Check if HEADLESS mode is enabled
   if (!cfg.isHeadless()) {
     _fdmexec->SetOutputDirectives(SGPath("data_out/flightgear.xml"));
@@ -142,7 +137,8 @@ bool JSBSimBridge::SetFdmConfigs(ConfigurationParser &cfg) {
     } else {
       _fdmexec->SetAircraftPath(SGPath("models/"));
       GetConfigElement<std::string>(*config, "jsb_script", jsb_script);
-      _fdmexec->LoadScript(SGPath("scenario/" + jsb_script), _dt, SGPath(init_script_path));
+      // _fdmexec->LoadScript(SGPath("scenario/" + jsb_script), _dt, SGPath(init_script_path));
+      _fdmexec->LoadScript(SGPath("scenario/" + jsb_script), _dt);
       return true;
     }
   } else {

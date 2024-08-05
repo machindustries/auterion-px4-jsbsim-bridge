@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="http://jsbsim.sf.net/JSBSimScript.xsl"?>
 <runscript xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://jsbsim.sf.net/JSBSimScript.xsd" name="test_long_ctrl_run">
   <use aircraft="Viper-JSBSim" initialize="reset_midflight" />
-  <output name="viper5000.csv" rate="10000" type="CSV">
+  <output name="viper5000.csv" rate="100" type="CSV">
     <rates>ON</rates>
     <velocities>ON</velocities>
     <forces>ON</forces>

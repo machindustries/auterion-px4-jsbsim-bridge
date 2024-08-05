@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <initialize name="reset_midflight">
+  <!-- From LSZH -->
+  <latitude type="geodetic" unit="DEG"> 47.458159 </latitude>
+  <longitude unit="DEG"> 8.548004 </longitude>
+  <elevation unit="M"> 419.2 </elevation>
+  <gamma unit="DEG">      0.0 </gamma>
+
+  <!-- From Vulcan -->
   <ubody unit="M/SEC">50.0</ubody>
   <vbody unit="M/SEC">0.0</vbody>
   <wbody unit="M/SEC">5.0</wbody>
-  <latitude type="geodetic" unit="DEG"> 47.458159 </latitude>
-  <longitude unit="DEG"> 8.548004 </longitude>
   <phi unit="DEG">0.0</phi>
   <theta unit="DEG">0.0</theta>
   <psi unit="DEG">45.0</psi>
   <altitude unit="M">1500.0</altitude>
-  <elevation unit="M"> 419.2 </elevation>
-  <!-- <vt unit="FT/SEC">      0 </vt>
-  <gamma unit="DEG">      0.0 </gamma> -->
 </initialize>

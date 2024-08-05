@@ -1,7 +1,8 @@
-<model name="viper">
+<model name="Viper-JSBSim">
     <jsbsimbridge>
-        <aircraft_directory>models/ViperRevA</aircraft_directory>
+        <aircraft_directory>models/Viper-JSBSim</aircraft_directory>
         <aircraft_model>Viper-JSBSim</aircraft_model>
+        <jsb_script>test_long_ctrl_run.xml</jsb_script>
     </jsbsimbridge>
     <mavlink_interface>
         <tcp_port>4560</tcp_port>
