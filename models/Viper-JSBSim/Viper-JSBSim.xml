@@ -236,7 +236,7 @@
 
         </channel>
 
-        <channel name="Yaw TEST">
+        <channel name="Yaw">
 
             <aerosurface_scale name="Yaw Command Scale">
                 <input>fcs/rudder-cmd-norm</input>

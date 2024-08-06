@@ -137,7 +137,8 @@ bool JSBSimBridge::SetFdmConfigs(ConfigurationParser &cfg) {
     } else {
       _fdmexec->SetAircraftPath(SGPath("models/"));
       GetConfigElement<std::string>(*config, "jsb_script", jsb_script);
-      // _fdmexec->LoadScript(SGPath("scenario/" + jsb_script), _dt, SGPath(init_script_path));
+
+      // _fdmexec->LoadScript(SGPath("scenario/" + jsb_script), _dt, SGPath(init_script_path)); // This initializes the world scene but overrides reset_midflight
       _fdmexec->LoadScript(SGPath("scenario/" + jsb_script), _dt);
       return true;
     }
