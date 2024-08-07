@@ -35,8 +35,53 @@
       <z>0.9891532999999999</z>
     </location>
   </mass_balance>
+  <!-- Ground reactions are adapted from the x24B aircraft. Placeholder values. -->
   <ground_reactions>
-    <!-- This is a placeholder for ground reaction configurations -->
+    <contact type="BOGEY" name="NOSE">
+        <location unit="IN">
+            <x> 80 </x>
+            <y> 0 </y>
+            <z> -18 </z>
+        </location>
+        <static_friction> 0.5 </static_friction>
+        <dynamic_friction> 0.02 </dynamic_friction>
+        <rolling_friction> 0.02 </rolling_friction>
+        <spring_coeff unit="LBS/FT"> 5000 </spring_coeff>
+        <damping_coeff unit="LBS/FT/SEC"> 300 </damping_coeff>
+        <max_steer unit="DEG"> 0.0 </max_steer>
+        <brake_group> NONE </brake_group>
+        <retractable> 0 </retractable>
+    </contact>
+    <contact type="BOGEY" name="LEFT_SKID">
+        <location unit="IN">
+            <x> 200 </x>
+            <y> -18 </y>
+            <z> -30 </z>
+        </location>
+        <static_friction> 0.9 </static_friction>
+        <dynamic_friction> 0.2 </dynamic_friction>
+        <rolling_friction> 0.2 </rolling_friction>
+        <spring_coeff unit="LBS/FT"> 5000 </spring_coeff>
+        <damping_coeff unit="LBS/FT/SEC"> 300 </damping_coeff>
+        <max_steer unit="DEG"> 0.0 </max_steer>
+        <brake_group> NONE </brake_group>
+        <retractable> 0 </retractable>
+    </contact>
+    <contact type="BOGEY" name="RIGHT_SKID">
+        <location unit="IN">
+            <x> 200 </x>
+            <y> 18 </y>
+            <z> -30 </z>
+        </location>
+        <static_friction> 0.9 </static_friction>
+        <dynamic_friction> 0.2 </dynamic_friction>
+        <rolling_friction> 0.2 </rolling_friction>
+        <spring_coeff unit="LBS/FT"> 5000 </spring_coeff>
+        <damping_coeff unit="LBS/FT/SEC"> 300 </damping_coeff>
+        <max_steer unit="DEG"> 0.0 </max_steer>
+        <brake_group> NONE </brake_group>
+        <retractable> 0 </retractable>
+    </contact>
   </ground_reactions>
   <propulsion>
     <engine file="K450">
@@ -64,9 +109,168 @@
       <contents unit="KG">1.6</contents>
     </tank>
   </propulsion>
-  <flight_control name="FCS: X-15 SAS -- NO PITCH">
+  <flight_control name="FCS: Viper">
     <property value="1">/controls/engines/engine[0]/starter</property>
     <!-- No hardcoded flight controller. We control that. -->
+    <!-- <channel name="Pitch">
+            <summer name="Pitch Trim Sum">
+                <input>fcs/elevator-cmd-norm</input>
+                <input>fcs/pitch-trim-cmd-norm</input>
+                <clipto>
+                    <min>-1</min>
+                    <max>1</max>
+                </clipto>
+            </summer>
+
+            <aerosurface_scale name="Pitch Command Scale">
+                <input>fcs/pitch-trim-sum</input>
+                <range>
+                    <min>-50</min>
+                    <max>50</max>
+                </range>
+            </aerosurface_scale>
+
+            <pure_gain name="Pitch Gain 1">
+                <input>fcs/pitch-command-scale</input>
+                <gain>-0.36</gain>
+            </pure_gain>
+
+            <scheduled_gain name="Pitch Scheduled Gain 1">
+                <input>fcs/pitch-gain-1</input>
+                <gain>0.017</gain>
+                <table>
+                    <independentVar>fcs/elevator-pos-rad</independentVar>
+                    <tableData>
+                        -0.68  -26.548
+                        -0.595 -20.513
+                        -0.51  -15.328
+                        -0.425 -10.993
+                        -0.34   -7.508
+                        -0.255  -4.873
+                        -0.17   -3.088
+                        -0.085  -2.153
+                         0      -2.068
+                         0.085  -2.833
+                         0.102  -3.088
+                         0.119  -3.377
+                         0.136  -3.7
+                         0.153  -4.057
+                         0.17   -4.448
+                         0.187  -4.873
+                         0.272  -7.508
+                         0.357 -10.993
+                         0.442 -15.328
+                         0.527 -20.513
+                         0.612 -26.548
+                         0.697 -33.433
+                    </tableData>
+                </table>
+            </scheduled_gain>
+
+            <pure_gain name="Pitch SAS Feedback">
+                <input>velocities/q-rad_sec</input>
+                <gain>0.75</gain>
+            </pure_gain>
+
+            <summer name="Elevator Positioning">
+                <input>fcs/pitch-scheduled-gain-1</input>
+                <input>fcs/pitch-sas-feedback</input>
+                <clipto>
+                    <min>-0.26</min>
+                    <max>0.61</max>
+                </clipto>
+            </summer>
+
+            <lag_filter name="Elevator Filter">
+                <input>fcs/elevator-positioning</input>
+                <c1>600</c1>
+                <output>fcs/elevator-pos-rad</output>
+            </lag_filter>
+
+        </channel>
+
+        <channel name="Roll">
+
+            <aerosurface_scale name="Roll Command Scale">
+                <input>fcs/aileron-cmd-norm</input>
+                <range>
+                    <min>-20</min>
+                    <max>20</max>
+                </range>
+            </aerosurface_scale>
+
+            <pure_gain name="Roll Gain 1">
+                <input>fcs/roll-command-scale</input>
+                <gain>0.42</gain>
+            </pure_gain>
+
+            <pure_gain name="Roll Gain 2">
+                <input>fcs/roll-gain-1</input>
+                <gain>0.027</gain>
+            </pure_gain>
+
+            <pure_gain name="Yaw-Roll Crossover Gain">
+                <input>velocities/r-rad_sec</input>
+                <gain>-0.9</gain>
+            </pure_gain>
+
+            <summer name="Yaw Coupled Aileron Feedback Sum">
+                <input>velocities/p-rad_sec</input>
+                <input>fcs/yaw-roll-crossover-gain</input>
+            </summer>
+
+            <pure_gain name="Roll SAS Gain">
+                <input>fcs/yaw-coupled-aileron-feedback-sum</input>
+                <gain>-0.5</gain>
+            </pure_gain>
+
+            <summer name="Aileron Positioning">
+                <input>fcs/roll-gain-2</input>
+                <input>fcs/roll-sas-gain</input>
+                <clipto>
+                    <min>-0.35</min>
+                    <max>0.35</max>
+                </clipto>
+                <output>fcs/left-aileron-pos-rad</output>
+            </summer>
+
+        </channel>
+
+        <channel name="Yaw">
+
+            <aerosurface_scale name="Yaw Command Scale">
+                <input>fcs/rudder-cmd-norm</input>
+                <range>
+                    <min>-250</min>
+                    <max>250</max>
+                </range>
+            </aerosurface_scale>
+
+            <pure_gain name="Yaw Gain 1">
+                <input>fcs/yaw-command-scale</input>
+                <gain>0.082</gain>
+            </pure_gain>
+
+            <pure_gain name="Yaw Gain 2">
+                <input>fcs/yaw-gain-1</input>
+                <gain>0.04</gain>
+            </pure_gain>
+
+            <pure_gain name="Yaw SAS Gain">
+                <input>velocities/r-rad_sec</input>
+                <gain>0.3</gain>
+            </pure_gain>
+
+            <summer name="Rudder Positioning">
+                <input>fcs/yaw-gain-2</input>
+                <input>fcs/yaw-sas-gain</input>
+                <clipto>
+                    <min>-0.52</min>
+                    <max>0.52</max>
+                </clipto>
+                <output>fcs/rudder-pos-rad</output>
+            </summer>
+        </channel> -->
   </flight_control>
   <aerodynamics>
     <axis name="X" frame="BODY">

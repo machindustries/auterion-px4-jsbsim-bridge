@@ -271,7 +271,7 @@ void MavlinkInterface::SendSensorMessages(int time_usec) {
     diff_press_updated_ = false;
   }
 
-  sensor_msg.id = 0;
+  sensor_msg.id = 0; // set to 0 to ensure proper number of accelerometers
 
   if (!hil_mode_ || (hil_mode_ && !hil_state_level_)) {
     mavlink_message_t msg;

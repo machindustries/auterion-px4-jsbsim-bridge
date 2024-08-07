@@ -1,7 +1,8 @@
-<model name="viper">
+<model name="Viper-JSBSim">
     <jsbsimbridge>
-        <aircraft_directory>models/ViperRevA</aircraft_directory>
+        <aircraft_directory>models/Viper-JSBSim</aircraft_directory>
         <aircraft_model>Viper-JSBSim</aircraft_model>
+        <jsb_script>test_long_ctrl_run.xml</jsb_script>
     </jsbsimbridge>
     <mavlink_interface>
         <tcp_port>4560</tcp_port>
@@ -18,26 +19,26 @@
         <airspeed>
         </airspeed>
     </sensors>
-    <!-- <actuators>
+    <actuators>
         <channel name="rudder">
             <index>2</index>
             <scale>-1</scale>
-            <property>fcs/rudder-cmd-norm</property>
+            <property>fcs/rudder-pos-rad</property>
         </channel>
         <channel name="aileron">
             <index>5</index>
             <scale>-1</scale>
-            <property>fcs/aileron-cmd-norm</property>
+            <property>fcs/aileron-pos-rad</property>
         </channel>
         <channel name="elevator">
             <index>7</index>
             <scale>-1</scale>
-            <property>fcs/elevator-cmd-norm</property>
+            <property>fcs/elevator-pos-rad</property>
         </channel>
         <channel name="throttle">
             <index>4</index>
             <scale>1</scale>
             <property>fcs/throttle-cmd-norm</property>
         </channel>
-    </actuators> -->
+    </actuators>
 </model>
