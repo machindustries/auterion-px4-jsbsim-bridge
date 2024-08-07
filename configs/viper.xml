@@ -23,17 +23,17 @@
         <channel name="rudder">
             <index>2</index>
             <scale>-1</scale>
-            <property>fcs/rudder-cmd-norm</property>
+            <property>fcs/rudder-pos-rad</property>
         </channel>
         <channel name="aileron">
             <index>5</index>
             <scale>-1</scale>
-            <property>fcs/aileron-cmd-norm</property>
+            <property>fcs/aileron-pos-rad</property>
         </channel>
         <channel name="elevator">
             <index>7</index>
             <scale>-1</scale>
-            <property>fcs/elevator-cmd-norm</property>
+            <property>fcs/elevator-pos-rad</property>
         </channel>
         <channel name="throttle">
             <index>4</index>

@@ -112,7 +112,7 @@
   <flight_control name="FCS: Viper">
     <property value="1">/controls/engines/engine[0]/starter</property>
     <!-- No hardcoded flight controller. We control that. -->
-    <channel name="Pitch">
+    <!-- <channel name="Pitch">
             <summer name="Pitch Trim Sum">
                 <input>fcs/elevator-cmd-norm</input>
                 <input>fcs/pitch-trim-cmd-norm</input>
@@ -270,7 +270,7 @@
                 </clipto>
                 <output>fcs/rudder-pos-rad</output>
             </summer>
-        </channel>
+        </channel> -->
   </flight_control>
   <aerodynamics>
     <axis name="X" frame="BODY">
